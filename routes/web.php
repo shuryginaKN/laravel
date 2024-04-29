@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\MyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,14 +38,14 @@ Route::get('/{year}/{month}/{day}', function ($year, $month, $day) {
 
 //Задание 9.3
 Route::get('names/{name}', function($name) {
-    $users = [ 
-        'user1' => 'city1', 
-        'user2' => 'city2', 
-        'user3' => 'city3', 
-        'user4' => 'city4', 
+    $users = [
+        'user1' => 'city1',
+        'user2' => 'city2',
+        'user3' => 'city3',
+        'user4' => 'city4',
         'user5' => 'city5'
     ];
-    
+
     if (array_key_exists($name, $users)) {
         return $users[$name];
     } else {
@@ -55,3 +56,14 @@ Route::get('names/{name}', function($name) {
 //Задание 9.4
 Route::get('/pages/show/{id}', [PageController::class, 'showOne']);
 Route::get('/pages/all', [PageController::class, 'showAll']);
+
+//Задание 10.1
+Route::get('/method1', [MyController::class, 'method1']);
+Route::get('/method2', [MyController::class, 'method2']);
+Route::get('/method3', [MyController::class, 'method3']);
+
+//Задание 10.2
+Route::get('/method4/{title}/{content}', [MyController::class, 'method4']);
+
+//Задание 10.3
+Route::get('/method5', [MyController::class, 'method5']);
